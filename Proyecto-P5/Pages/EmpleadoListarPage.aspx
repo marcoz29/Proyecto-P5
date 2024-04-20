@@ -11,10 +11,10 @@
     <asp:GridView ID="GvListarEmpleado" runat="server" AutoGenerateColumns="false" CssClass="table table-striped">
         <Columns>
             <asp:BoundField DataField="IdEmpleado" HeaderText="Id" />
-            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-            <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" />
-            <asp:BoundField DataField="Correo" HeaderText="Correo" />
-            <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
+            <asp:BoundField DataField="NombreEmpleado" HeaderText="Nombre" />
+            <asp:BoundField DataField="ApellidosEmpleado" HeaderText="Apellidos" />
+            <asp:BoundField DataField="CorreoEmpleado" HeaderText="Correo" />
+            <asp:BoundField DataField="DireccionEmpleado" HeaderText="Direccion" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <a href="EmpleadoEditarPage.aspx?id=<%# Eval("IdEmpleado") %> ">Editar</a>

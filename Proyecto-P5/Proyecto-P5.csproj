@@ -155,6 +155,8 @@
     <Content Include="Pages\Marca_ProductoAgregarPage.aspx" />
     <Content Include="Pages\Marca_ProductoEditarPage.aspx" />
     <Content Include="Pages\Marca_ProductoListarPage.aspx" />
+    <Content Include="Pages\ProductoAgregarPage.aspx" />
+    <Content Include="Pages\ProductoEditarPage.aspx" />
     <Content Include="Pages\ProductoListarPage.aspx" />
     <Content Include="Pages\ResultadoDeCrearCategoria.aspx" />
     <Content Include="Pages\ResultadoDeCrearCliente.aspx" />
@@ -406,6 +408,20 @@
     </Compile>
     <Compile Include="Pages\Marca_ProductoListarPage.aspx.designer.cs">
       <DependentUpon>Marca_ProductoListarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductoAgregarPage.aspx.cs">
+      <DependentUpon>ProductoAgregarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProductoAgregarPage.aspx.designer.cs">
+      <DependentUpon>ProductoAgregarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductoEditarPage.aspx.cs">
+      <DependentUpon>ProductoEditarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProductoEditarPage.aspx.designer.cs">
+      <DependentUpon>ProductoEditarPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProductoListarPage.aspx.cs">
       <DependentUpon>ProductoListarPage.aspx</DependentUpon>

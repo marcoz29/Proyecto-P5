@@ -17,14 +17,14 @@ namespace Proyecto_P5.Pages
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
-            string nombre = TxtNombre.Text.Trim();
-            string descripcion = TxtDescripcion.Text.Trim();
+            string nombreCategoria = TxtNombre.Text.Trim();
+            string descripcionCategoria = TxtDescripcion.Text.Trim();
 
             try
             {
                 using (Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    db.spCrearCategoria(nombre, descripcion);
+                    db.spCrearCategoria(nombreCategoria, descripcionCategoria);
                 }
             }
             catch (Exception)

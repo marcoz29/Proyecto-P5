@@ -25,8 +25,8 @@ namespace Proyecto_P5.Pages
 
                         if (datosCategoria != null)
                         {
-                            TxtNombre.Text = datosCategoria.Nombre;
-                            TxtDescripcion.Text = datosCategoria.Descripcion;
+                            TxtNombre.Text = datosCategoria.NombreCategoria;
+                            TxtDescripcion.Text = datosCategoria.DescripcionCategoria;
                         }
                     }
                 }
@@ -42,12 +42,12 @@ namespace Proyecto_P5.Pages
             try
             {
                 int idCategoria = Convert.ToInt32(txtIdCategoria.Text.Trim());
-                string nombre = TxtNombre.Text.Trim();
-                string descripcion = TxtDescripcion.Text.Trim();
+                string nombreCategoria = TxtNombre.Text.Trim();
+                string descripcionCategoria = TxtDescripcion.Text.Trim();
 
                 using(Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    db.spEditarCategoria(idCategoria, nombre, descripcion);
+                    db.spEditarCategoria(idCategoria, nombreCategoria, descripcionCategoria);
                 }
             }
             catch (Exception)

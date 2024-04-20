@@ -25,10 +25,10 @@ namespace Proyecto_P5.Pages
 
                         if (datosEmpleado != null)
                         {
-                            TxtNombre.Text = datosEmpleado.Nombre;
-                            TxtApellidos.Text = datosEmpleado.Apellidos;
-                            TxtCorreo.Text = datosEmpleado.Correo;
-                            TxtDireccion.Text = datosEmpleado.Direccion;
+                            TxtNombre.Text = datosEmpleado.NombreEmpleado;
+                            TxtApellidos.Text = datosEmpleado.ApellidosEmpleado;
+                            TxtCorreo.Text = datosEmpleado.CorreoEmpleado;
+                            TxtDireccion.Text = datosEmpleado.DireccionEmpleado;
                         }
                     }
                 }
@@ -44,14 +44,14 @@ namespace Proyecto_P5.Pages
             try
             {
                 int idEmpleado = Convert.ToInt32(txtIdEmpleado.Text.Trim());
-                string nombre = TxtNombre.Text.Trim();
-                string apellidos = TxtApellidos.Text.Trim();
-                string correo = TxtCorreo.Text.Trim();
-                string direccion = TxtDireccion.Text.Trim();
+                string nombreEmpleado = TxtNombre.Text.Trim();
+                string apellidosEmpleado = TxtApellidos.Text.Trim();
+                string correoEmpleado = TxtCorreo.Text.Trim();
+                string direccionEmpleado = TxtDireccion.Text.Trim();
 
                 using (Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    db.spEditarEmpleado(idEmpleado, nombre, apellidos, correo, direccion);
+                    db.spEditarEmpleado(idEmpleado, nombreEmpleado, apellidosEmpleado, correoEmpleado, direccionEmpleado);
                 }
             }
             catch (Exception)

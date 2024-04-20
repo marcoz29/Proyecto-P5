@@ -11,8 +11,8 @@
     <asp:GridView ID="GvListarCategoria" runat="server" AutoGenerateColumns="false" CssClass="table table-striped">
         <Columns>
             <asp:BoundField DataField="IdCategoria" HeaderText="Id" />
-            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+            <asp:BoundField DataField="NombreCategoria" HeaderText="Nombre" />
+            <asp:BoundField DataField="DescripcionCategoria" HeaderText="Descripcion" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <a href="CategoriaEditarPage.aspx?id=<%# Eval("IdCategoria") %> ">Editar</a>

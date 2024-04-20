@@ -25,8 +25,8 @@ namespace Proyecto_P5.Pages
 
                         if (datosMarca != null)
                         {
-                            TxtNombre.Text = datosMarca.Nombre;
-                            TxtDescripcion.Text = datosMarca.Descripcion;
+                            TxtNombre.Text = datosMarca.NombreMarca;
+                            TxtDescripcion.Text = datosMarca.DescripcionMarca;
                         }
                     }
                 }
@@ -42,12 +42,12 @@ namespace Proyecto_P5.Pages
             try
             {
                 int idMarca = Convert.ToInt32(txtIdMarca.Text.Trim());
-                string nombre = TxtNombre.Text.Trim();
-                string descripcion = TxtDescripcion.Text.Trim();
+                string nombreMarca = TxtNombre.Text.Trim();
+                string descripcionMarca = TxtDescripcion.Text.Trim();
 
                 using (Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    db.spEditarMarca_Producto(idMarca, nombre, descripcion);
+                    db.spEditarMarca_Producto(idMarca, nombreMarca, descripcionMarca);
                 }
             }
             catch (Exception)

@@ -16,7 +16,7 @@ namespace Proyecto_P5.Pages
             {
                 using (Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    var Lista = db.spListarProducto().ToList();
+                    var Lista = db.spListarEmpleado().ToList();
 
                     GvListarEmpleado.DataSource = Lista;
                     GvListarEmpleado.DataBind();

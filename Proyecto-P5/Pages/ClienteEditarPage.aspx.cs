@@ -25,10 +25,10 @@ namespace Proyecto_P5.Pages
 
                         if (datosCliente != null)
                         {
-                            TxtNombre.Text = datosCliente.Nombre;
-                            TxtApellidos.Text = datosCliente.Apellidos;
-                            TxtCorreo.Text = datosCliente.Correo; 
-                            TxtDireccion.Text = datosCliente.Direccion;
+                            TxtNombre.Text = datosCliente.NombreCliente;
+                            TxtApellidos.Text = datosCliente.ApellidosCliente;
+                            TxtCorreo.Text = datosCliente.CorreoCliente; 
+                            TxtDireccion.Text = datosCliente.DireccionCliente;
                         }
                     }
                 }
@@ -44,14 +44,14 @@ namespace Proyecto_P5.Pages
             try
             {
                 int idCliente = Convert.ToInt32(txtIdCliente.Text.Trim());
-                string nombre = TxtNombre.Text.Trim();
-                string apellidos = TxtApellidos.Text.Trim();
-                string correo = TxtCorreo.Text.Trim();
-                string direccion = TxtDireccion.Text.Trim();
+                string nombreCliente = TxtNombre.Text.Trim();
+                string apellidosCliente = TxtApellidos.Text.Trim();
+                string correoCliente = TxtCorreo.Text.Trim();
+                string direccionCliente = TxtDireccion.Text.Trim();
 
                 using (Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    db.spEditarCliente(idCliente, nombre, apellidos, correo, direccion);
+                    db.spEditarCliente(idCliente, nombreCliente, apellidosCliente, correoCliente, direccionCliente);
                 }
             }
             catch (Exception)
