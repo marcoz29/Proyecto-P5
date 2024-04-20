@@ -175,5 +175,65 @@ namespace Proyecto_P5.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCliente", nombreParameter, apellidosParameter, correoParameter, direccionParameter);
         }
+    
+        public virtual ObjectResult<spListarEmpleado_Result> spListarEmpleado()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarEmpleado_Result>("spListarEmpleado");
+        }
+    
+        public virtual int spCrearEmpleado(string nombre, string apellidos, string correo, string direccion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearEmpleado", nombreParameter, apellidosParameter, correoParameter, direccionParameter);
+        }
+    
+        public virtual ObjectResult<spConsultarEmpleadoId_Result> spConsultarEmpleadoId(Nullable<int> idEmpleado)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("idEmpleado", idEmpleado) :
+                new ObjectParameter("idEmpleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarEmpleadoId_Result>("spConsultarEmpleadoId", idEmpleadoParameter);
+        }
+    
+        public virtual int spEditarEmpleado(Nullable<int> idEmpleado, string nombre, string apellidos, string correo, string direccion)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarEmpleado", idEmpleadoParameter, nombreParameter, apellidosParameter, correoParameter, direccionParameter);
+        }
     }
 }

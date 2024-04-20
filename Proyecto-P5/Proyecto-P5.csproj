@@ -148,15 +148,20 @@
     <Content Include="Pages\ClienteAgregarPage.aspx" />
     <Content Include="Pages\ClienteEditarPage.aspx" />
     <Content Include="Pages\ClienteListarPage.aspx" />
+    <Content Include="Pages\EmpleadoAgregarPage.aspx" />
+    <Content Include="Pages\EmpleadoEditarPage.aspx" />
+    <Content Include="Pages\EmpleadoListarPage.aspx" />
     <Content Include="Pages\Error.aspx" />
     <Content Include="Pages\Marca_ProductoAgregarPage.aspx" />
     <Content Include="Pages\Marca_ProductoEditarPage.aspx" />
     <Content Include="Pages\Marca_ProductoListarPage.aspx" />
     <Content Include="Pages\ResultadoDeCrearCategoria.aspx" />
     <Content Include="Pages\ResultadoDeCrearCliente.aspx" />
+    <Content Include="Pages\ResultadoDeCrearEmpleado.aspx" />
     <Content Include="Pages\ResultadoDeCrearMarca_Producto.aspx" />
     <Content Include="Pages\ResultadoEditarCategoria.aspx" />
     <Content Include="Pages\ResultadoEditarCliente.aspx" />
+    <Content Include="Pages\ResultadoEditarEmpleado.aspx" />
     <Content Include="Pages\ResultadoEditarMarca_Producto.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -264,6 +269,9 @@
     <Compile Include="Data\spConsultarClienteId_Result.cs">
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\spConsultarEmpleadoId_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\spConsultarMarca_ProductoId_Result.cs">
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
@@ -271,6 +279,9 @@
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\spListarCliente_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\spListarEmpleado_Result.cs">
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\spListarMarca_Producto_Result.cs">
@@ -328,6 +339,27 @@
     <Compile Include="Pages\ClienteListarPage.aspx.designer.cs">
       <DependentUpon>ClienteListarPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EmpleadoAgregarPage.aspx.cs">
+      <DependentUpon>EmpleadoAgregarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EmpleadoAgregarPage.aspx.designer.cs">
+      <DependentUpon>EmpleadoAgregarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmpleadoEditarPage.aspx.cs">
+      <DependentUpon>EmpleadoEditarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EmpleadoEditarPage.aspx.designer.cs">
+      <DependentUpon>EmpleadoEditarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmpleadoListarPage.aspx.cs">
+      <DependentUpon>EmpleadoListarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EmpleadoListarPage.aspx.designer.cs">
+      <DependentUpon>EmpleadoListarPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -370,6 +402,13 @@
     <Compile Include="Pages\ResultadoDeCrearCliente.aspx.designer.cs">
       <DependentUpon>ResultadoDeCrearCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ResultadoDeCrearEmpleado.aspx.cs">
+      <DependentUpon>ResultadoDeCrearEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadoDeCrearEmpleado.aspx.designer.cs">
+      <DependentUpon>ResultadoDeCrearEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ResultadoDeCrearMarca_Producto.aspx.cs">
       <DependentUpon>ResultadoDeCrearMarca_Producto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -390,6 +429,13 @@
     </Compile>
     <Compile Include="Pages\ResultadoEditarCliente.aspx.designer.cs">
       <DependentUpon>ResultadoEditarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResultadoEditarEmpleado.aspx.cs">
+      <DependentUpon>ResultadoEditarEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadoEditarEmpleado.aspx.designer.cs">
+      <DependentUpon>ResultadoEditarEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ResultadoEditarMarca_Producto.aspx.cs">
       <DependentUpon>ResultadoEditarMarca_Producto.aspx</DependentUpon>

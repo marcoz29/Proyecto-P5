@@ -11,6 +11,9 @@
         <Function Name="spConsultarClienteId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="spConsultarEmpleadoId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmpleado" Type="int" Mode="In" />
+        </Function>
         <Function Name="spConsultarMarca_ProductoId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idMarca" Type="int" Mode="In" />
         </Function>
@@ -19,6 +22,12 @@
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spCrearCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spCrearEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="Apellidos" Type="varchar" Mode="In" />
           <Parameter Name="Correo" Type="varchar" Mode="In" />
@@ -40,6 +49,13 @@
           <Parameter Name="Correo" Type="varchar" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="spEditarEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spEditarMarca_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdMarca" Type="int" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
@@ -47,6 +63,7 @@
         </Function>
         <Function Name="spListarCategoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spListarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spListarMarca_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Proyecto_P5ModelStoreContainer" />
       </Schema></edmx:StorageModels>
@@ -97,6 +114,23 @@
             <Parameter Name="Correo" Mode="In" Type="String" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="spListarEmpleado" ReturnType="Collection(Proyecto_P5Model.spListarEmpleado_Result)" />
+          <FunctionImport Name="spCrearEmpleado">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultarEmpleadoId" ReturnType="Collection(Proyecto_P5Model.spConsultarEmpleadoId_Result)">
+          <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEditarEmpleado">
+            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spListarCategoria_Result">
           <Property Type="Int32" Name="IdCategoria" Nullable="false" />
@@ -127,6 +161,20 @@
         </ComplexType>
         <ComplexType Name="spConsultarClienteId_Result">
           <Property Type="Int32" Name="IdCliente" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="Direccion" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="spListarEmpleado_Result">
+          <Property Type="Int32" Name="IdEmpleado" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="Direccion" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="spConsultarEmpleadoId_Result">
+          <Property Type="Int32" Name="IdEmpleado" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Correo" Nullable="false" MaxLength="70" />
@@ -202,6 +250,30 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spCrearCliente" FunctionName="Proyecto_P5Model.Store.spCrearCliente" />
+          <FunctionImportMapping FunctionImportName="spListarEmpleado" FunctionName="Proyecto_P5Model.Store.spListarEmpleado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Proyecto_P5Model.spListarEmpleado_Result">
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCrearEmpleado" FunctionName="Proyecto_P5Model.Store.spCrearEmpleado" />
+          <FunctionImportMapping FunctionImportName="spConsultarEmpleadoId" FunctionName="Proyecto_P5Model.Store.spConsultarEmpleadoId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Proyecto_P5Model.spConsultarEmpleadoId_Result">
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEditarEmpleado" FunctionName="Proyecto_P5Model.Store.spEditarEmpleado" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
