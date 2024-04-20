@@ -115,5 +115,65 @@ namespace Proyecto_P5.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarMarca_Producto", idMarcaParameter, nombreParameter, descripcionParameter);
         }
+    
+        public virtual ObjectResult<spListarCliente_Result> spListarCliente()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarCliente_Result>("spListarCliente");
+        }
+    
+        public virtual int spEditarCliente(Nullable<int> idCliente, string nombre, string apellidos, string correo, string direccion)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarCliente", idClienteParameter, nombreParameter, apellidosParameter, correoParameter, direccionParameter);
+        }
+    
+        public virtual ObjectResult<spConsultarClienteId_Result> spConsultarClienteId(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarClienteId_Result>("spConsultarClienteId", idClienteParameter);
+        }
+    
+        public virtual int spCrearCliente(string nombre, string apellidos, string correo, string direccion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCliente", nombreParameter, apellidosParameter, correoParameter, direccionParameter);
+        }
     }
 }
