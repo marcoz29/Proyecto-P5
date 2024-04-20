@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Proyecto_P5.Pages
 {
-    public partial class EmpleadoListarPage : System.Web.UI.Page
+    public partial class ProductoListarPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,8 +18,8 @@ namespace Proyecto_P5.Pages
                 {
                     var Lista = db.spListarProducto().ToList();
 
-                    GvListarEmpleado.DataSource = Lista;
-                    GvListarEmpleado.DataBind();
+                    GvListarProducto.DataSource = Lista;
+                    GvListarProducto.DataBind();
                 }
             }
             catch
@@ -34,7 +34,7 @@ namespace Proyecto_P5.Pages
             {
                 string filterText = TxtFiltrar.Text.ToUpper(); // Convertir el texto del filtro a mayúsculas para un filtrado no sensible a mayúsculas/minúsculas
 
-                foreach (GridViewRow row in GvListarEmpleado.Rows)
+                foreach (GridViewRow row in GvListarProducto.Rows)
                 {
                     bool rowVisible = false; // Indicador para rastrear si alguna celda en la fila coincide con el filtro
 
@@ -53,7 +53,7 @@ namespace Proyecto_P5.Pages
             else
             {
                 // Mostrar todas las filas si el texto del filtro está vacío
-                foreach (GridViewRow row in GvListarEmpleado.Rows)
+                foreach (GridViewRow row in GvListarProducto.Rows)
                 {
                     row.Visible = true;
                 }

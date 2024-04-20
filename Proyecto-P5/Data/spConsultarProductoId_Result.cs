@@ -11,12 +11,15 @@ namespace Proyecto_P5.Data
 {
     using System;
     
-    public partial class spListarEmpleado_Result
+    public partial class spConsultarProductoId_Result
     {
-        public int IdEmpleado { get; set; }
-        public string NombreEmpleado { get; set; }
-        public string ApellidosEmpleado { get; set; }
-        public string CorreoEmpleado { get; set; }
-        public string DireccionEmpleado { get; set; }
+        public int IdProducto { get; set; }
+        public int IdMarca { get; set; }
+        public int IdCategoria { get; set; }
+        public string NombreProducto { get; set; }
+        public int IdEstado { get; set; }
+        public string DescripcionProducto { get; set; }
+        public decimal PrecioProducto { get; set; }
+        public int CantidadProducto { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Proyecto_P5.Data
     public partial class spListarMarca_Producto_Result
     {
         public int IdMarca { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
+        public string NombreMarca { get; set; }
+        public string DescripcionMarca { get; set; }
     }
 }

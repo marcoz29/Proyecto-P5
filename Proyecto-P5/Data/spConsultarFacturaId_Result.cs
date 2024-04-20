@@ -11,12 +11,14 @@ namespace Proyecto_P5.Data
 {
     using System;
     
-    public partial class spListarEmpleado_Result
+    public partial class spConsultarFacturaId_Result
     {
+        public int IdFactrura { get; set; }
         public int IdEmpleado { get; set; }
-        public string NombreEmpleado { get; set; }
-        public string ApellidosEmpleado { get; set; }
-        public string CorreoEmpleado { get; set; }
-        public string DireccionEmpleado { get; set; }
+        public System.DateTime FechaFactrura { get; set; }
+        public decimal TotalFactrura { get; set; }
+        public string TipoPagoFactrura { get; set; }
+        public int IdCliente { get; set; }
+        public int IdProducto { get; set; }
     }
 }

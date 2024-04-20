@@ -11,12 +11,9 @@ namespace Proyecto_P5.Data
 {
     using System;
     
-    public partial class spListarEmpleado_Result
+    public partial class spConsultarEstadoId_Result
     {
-        public int IdEmpleado { get; set; }
-        public string NombreEmpleado { get; set; }
-        public string ApellidosEmpleado { get; set; }
-        public string CorreoEmpleado { get; set; }
-        public string DireccionEmpleado { get; set; }
+        public int IdEstado { get; set; }
+        public string Estado { get; set; }
     }
 }

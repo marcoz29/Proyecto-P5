@@ -155,6 +155,7 @@
     <Content Include="Pages\Marca_ProductoAgregarPage.aspx" />
     <Content Include="Pages\Marca_ProductoEditarPage.aspx" />
     <Content Include="Pages\Marca_ProductoListarPage.aspx" />
+    <Content Include="Pages\ProductoListarPage.aspx" />
     <Content Include="Pages\ResultadoDeCrearCategoria.aspx" />
     <Content Include="Pages\ResultadoDeCrearCliente.aspx" />
     <Content Include="Pages\ResultadoDeCrearEmpleado.aspx" />
@@ -272,7 +273,16 @@
     <Compile Include="Data\spConsultarEmpleadoId_Result.cs">
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\spConsultarEstadoId_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\spConsultarFacturaId_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\spConsultarMarca_ProductoId_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\spConsultarProductoId_Result.cs">
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\spListarCategoria_Result.cs">
@@ -284,7 +294,16 @@
     <Compile Include="Data\spListarEmpleado_Result.cs">
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\spListarEstado_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\spListarFactura_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\spListarMarca_Producto_Result.cs">
+      <DependentUpon>Progra5.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\spListarProducto_Result.cs">
       <DependentUpon>Progra5.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -387,6 +406,13 @@
     </Compile>
     <Compile Include="Pages\Marca_ProductoListarPage.aspx.designer.cs">
       <DependentUpon>Marca_ProductoListarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductoListarPage.aspx.cs">
+      <DependentUpon>ProductoListarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProductoListarPage.aspx.designer.cs">
+      <DependentUpon>ProductoListarPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ResultadoDeCrearCategoria.aspx.cs">
       <DependentUpon>ResultadoDeCrearCategoria.aspx</DependentUpon>

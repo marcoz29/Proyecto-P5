@@ -14,7 +14,7 @@ namespace Proyecto_P5.Data
     public partial class spListarCategoria_Result
     {
         public int IdCategoria { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
+        public string NombreCategoria { get; set; }
+        public string DescripcionCategoria { get; set; }
     }
 }

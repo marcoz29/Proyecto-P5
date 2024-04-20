@@ -28,22 +28,22 @@ namespace Proyecto_P5.Data
         }
     
     
-        public virtual ObjectResult<spListarCategoria_Result> spListarCategoria()
+        public virtual ObjectResult<spListarProducto_Result> spListarProducto()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarCategoria_Result>("spListarCategoria");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarProducto_Result>("spListarProducto");
         }
     
-        public virtual int spCrearCategoria(string nombre, string descripcion)
+        public virtual int spCrearCategoria(string nombreCategoria, string descripcionCategoria)
         {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
+            var nombreCategoriaParameter = nombreCategoria != null ?
+                new ObjectParameter("NombreCategoria", nombreCategoria) :
+                new ObjectParameter("NombreCategoria", typeof(string));
     
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
+            var descripcionCategoriaParameter = descripcionCategoria != null ?
+                new ObjectParameter("DescripcionCategoria", descripcionCategoria) :
+                new ObjectParameter("DescripcionCategoria", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCategoria", nombreParameter, descripcionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCategoria", nombreCategoriaParameter, descripcionCategoriaParameter);
         }
     
         public virtual ObjectResult<spConsultarCategoriaId_Result> spConsultarCategoriaId(Nullable<int> idCategoria)
@@ -55,39 +55,40 @@ namespace Proyecto_P5.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarCategoriaId_Result>("spConsultarCategoriaId", idCategoriaParameter);
         }
     
-        public virtual int spEditarCategoria(Nullable<int> idCategoria, string nombre, string descripcion)
+        public virtual ObjectResult<spConsultarClienteId_Result> spConsultarClienteId(Nullable<int> idCliente)
         {
-            var idCategoriaParameter = idCategoria.HasValue ?
-                new ObjectParameter("IdCategoria", idCategoria) :
-                new ObjectParameter("IdCategoria", typeof(int));
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
     
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarCategoria", idCategoriaParameter, nombreParameter, descripcionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarClienteId_Result>("spConsultarClienteId", idClienteParameter);
         }
     
-        public virtual ObjectResult<spListarMarca_Producto_Result> spListarMarca_Producto()
+        public virtual ObjectResult<spConsultarEmpleadoId_Result> spConsultarEmpleadoId(Nullable<int> idEmpleado)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarMarca_Producto_Result>("spListarMarca_Producto");
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("idEmpleado", idEmpleado) :
+                new ObjectParameter("idEmpleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarEmpleadoId_Result>("spConsultarEmpleadoId", idEmpleadoParameter);
         }
     
-        public virtual int spCrearMarca_Producto(string nombre, string descripcion)
+        public virtual ObjectResult<spConsultarEstadoId_Result> spConsultarEstadoId(Nullable<int> idEstado)
         {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
+            var idEstadoParameter = idEstado.HasValue ?
+                new ObjectParameter("idEstado", idEstado) :
+                new ObjectParameter("idEstado", typeof(int));
     
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarEstadoId_Result>("spConsultarEstadoId", idEstadoParameter);
+        }
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearMarca_Producto", nombreParameter, descripcionParameter);
+        public virtual ObjectResult<spConsultarFacturaId_Result> spConsultarFacturaId(Nullable<int> idFactura)
+        {
+            var idFacturaParameter = idFactura.HasValue ?
+                new ObjectParameter("idFactura", idFactura) :
+                new ObjectParameter("idFactura", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarFacturaId_Result>("spConsultarFacturaId", idFacturaParameter);
         }
     
         public virtual ObjectResult<spConsultarMarca_ProductoId_Result> spConsultarMarca_ProductoId(Nullable<int> idMarca)
@@ -99,60 +100,13 @@ namespace Proyecto_P5.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarMarca_ProductoId_Result>("spConsultarMarca_ProductoId", idMarcaParameter);
         }
     
-        public virtual int spEditarMarca_Producto(Nullable<int> idMarca, string nombre, string descripcion)
+        public virtual ObjectResult<spConsultarProductoId_Result> spConsultarProductoId(Nullable<int> idProducto)
         {
-            var idMarcaParameter = idMarca.HasValue ?
-                new ObjectParameter("IdMarca", idMarca) :
-                new ObjectParameter("IdMarca", typeof(int));
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
     
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarMarca_Producto", idMarcaParameter, nombreParameter, descripcionParameter);
-        }
-    
-        public virtual ObjectResult<spListarCliente_Result> spListarCliente()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarCliente_Result>("spListarCliente");
-        }
-    
-        public virtual int spEditarCliente(Nullable<int> idCliente, string nombre, string apellidos, string correo, string direccion)
-        {
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("IdCliente", idCliente) :
-                new ObjectParameter("IdCliente", typeof(int));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var apellidosParameter = apellidos != null ?
-                new ObjectParameter("Apellidos", apellidos) :
-                new ObjectParameter("Apellidos", typeof(string));
-    
-            var correoParameter = correo != null ?
-                new ObjectParameter("Correo", correo) :
-                new ObjectParameter("Correo", typeof(string));
-    
-            var direccionParameter = direccion != null ?
-                new ObjectParameter("Direccion", direccion) :
-                new ObjectParameter("Direccion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarCliente", idClienteParameter, nombreParameter, apellidosParameter, correoParameter, direccionParameter);
-        }
-    
-        public virtual ObjectResult<spConsultarClienteId_Result> spConsultarClienteId(Nullable<int> idCliente)
-        {
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarClienteId_Result>("spConsultarClienteId", idClienteParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarProductoId_Result>("spConsultarProductoId", idProductoParameter);
         }
     
         public virtual int spCrearCliente(string nombre, string apellidos, string correo, string direccion)
@@ -176,64 +130,284 @@ namespace Proyecto_P5.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCliente", nombreParameter, apellidosParameter, correoParameter, direccionParameter);
         }
     
+        public virtual ObjectResult<spListarMarca_Producto_Result> spListarMarca_Producto()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarMarca_Producto_Result>("spListarMarca_Producto");
+        }
+    
+        public virtual ObjectResult<spListarFactura_Result> spListarFactura()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarFactura_Result>("spListarFactura");
+        }
+    
         public virtual ObjectResult<spListarEmpleado_Result> spListarEmpleado()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarEmpleado_Result>("spListarEmpleado");
         }
     
-        public virtual int spCrearEmpleado(string nombre, string apellidos, string correo, string direccion)
+        public virtual ObjectResult<spListarCliente_Result> spListarCliente()
         {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var apellidosParameter = apellidos != null ?
-                new ObjectParameter("Apellidos", apellidos) :
-                new ObjectParameter("Apellidos", typeof(string));
-    
-            var correoParameter = correo != null ?
-                new ObjectParameter("Correo", correo) :
-                new ObjectParameter("Correo", typeof(string));
-    
-            var direccionParameter = direccion != null ?
-                new ObjectParameter("Direccion", direccion) :
-                new ObjectParameter("Direccion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearEmpleado", nombreParameter, apellidosParameter, correoParameter, direccionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarCliente_Result>("spListarCliente");
         }
     
-        public virtual ObjectResult<spConsultarEmpleadoId_Result> spConsultarEmpleadoId(Nullable<int> idEmpleado)
+        public virtual int spEditarProducto(Nullable<int> idProducto, Nullable<int> idMarca, Nullable<int> idCategoria, string nombreProducto, Nullable<int> idEstado, string descripcionProducto, Nullable<decimal> precioProducto, Nullable<int> cantidadProducto)
         {
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(int));
+    
+            var idMarcaParameter = idMarca.HasValue ?
+                new ObjectParameter("IdMarca", idMarca) :
+                new ObjectParameter("IdMarca", typeof(int));
+    
+            var idCategoriaParameter = idCategoria.HasValue ?
+                new ObjectParameter("IdCategoria", idCategoria) :
+                new ObjectParameter("IdCategoria", typeof(int));
+    
+            var nombreProductoParameter = nombreProducto != null ?
+                new ObjectParameter("NombreProducto", nombreProducto) :
+                new ObjectParameter("NombreProducto", typeof(string));
+    
+            var idEstadoParameter = idEstado.HasValue ?
+                new ObjectParameter("IdEstado", idEstado) :
+                new ObjectParameter("IdEstado", typeof(int));
+    
+            var descripcionProductoParameter = descripcionProducto != null ?
+                new ObjectParameter("DescripcionProducto", descripcionProducto) :
+                new ObjectParameter("DescripcionProducto", typeof(string));
+    
+            var precioProductoParameter = precioProducto.HasValue ?
+                new ObjectParameter("PrecioProducto", precioProducto) :
+                new ObjectParameter("PrecioProducto", typeof(decimal));
+    
+            var cantidadProductoParameter = cantidadProducto.HasValue ?
+                new ObjectParameter("CantidadProducto", cantidadProducto) :
+                new ObjectParameter("CantidadProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarProducto", idProductoParameter, idMarcaParameter, idCategoriaParameter, nombreProductoParameter, idEstadoParameter, descripcionProductoParameter, precioProductoParameter, cantidadProductoParameter);
+        }
+    
+        public virtual ObjectResult<spListarCategoria_Result> spListarCategoria()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarCategoria_Result>("spListarCategoria");
+        }
+    
+        public virtual int spEditarCliente(Nullable<int> idCliente, string nombreCliente, string apellidosCliente, string correoCliente, string direccionCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var apellidosClienteParameter = apellidosCliente != null ?
+                new ObjectParameter("ApellidosCliente", apellidosCliente) :
+                new ObjectParameter("ApellidosCliente", typeof(string));
+    
+            var correoClienteParameter = correoCliente != null ?
+                new ObjectParameter("CorreoCliente", correoCliente) :
+                new ObjectParameter("CorreoCliente", typeof(string));
+    
+            var direccionClienteParameter = direccionCliente != null ?
+                new ObjectParameter("DireccionCliente", direccionCliente) :
+                new ObjectParameter("DireccionCliente", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarCliente", idClienteParameter, nombreClienteParameter, apellidosClienteParameter, correoClienteParameter, direccionClienteParameter);
+        }
+    
+        public virtual int spEditarMarca_Producto(Nullable<int> idMarca, string nombreMarca, string descripcionMarca)
+        {
+            var idMarcaParameter = idMarca.HasValue ?
+                new ObjectParameter("IdMarca", idMarca) :
+                new ObjectParameter("IdMarca", typeof(int));
+    
+            var nombreMarcaParameter = nombreMarca != null ?
+                new ObjectParameter("NombreMarca", nombreMarca) :
+                new ObjectParameter("NombreMarca", typeof(string));
+    
+            var descripcionMarcaParameter = descripcionMarca != null ?
+                new ObjectParameter("DescripcionMarca", descripcionMarca) :
+                new ObjectParameter("DescripcionMarca", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarMarca_Producto", idMarcaParameter, nombreMarcaParameter, descripcionMarcaParameter);
+        }
+    
+        public virtual int spEditarFactura(Nullable<int> idFactura, Nullable<int> idEmpleado, Nullable<System.DateTime> fechaFactrura, Nullable<decimal> totalFactrura, string tipoPagoFactrura, Nullable<int> idCliente, Nullable<int> idProducto)
+        {
+            var idFacturaParameter = idFactura.HasValue ?
+                new ObjectParameter("IdFactura", idFactura) :
+                new ObjectParameter("IdFactura", typeof(int));
+    
             var idEmpleadoParameter = idEmpleado.HasValue ?
-                new ObjectParameter("idEmpleado", idEmpleado) :
-                new ObjectParameter("idEmpleado", typeof(int));
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarEmpleadoId_Result>("spConsultarEmpleadoId", idEmpleadoParameter);
+            var fechaFactruraParameter = fechaFactrura.HasValue ?
+                new ObjectParameter("FechaFactrura", fechaFactrura) :
+                new ObjectParameter("FechaFactrura", typeof(System.DateTime));
+    
+            var totalFactruraParameter = totalFactrura.HasValue ?
+                new ObjectParameter("TotalFactrura", totalFactrura) :
+                new ObjectParameter("TotalFactrura", typeof(decimal));
+    
+            var tipoPagoFactruraParameter = tipoPagoFactrura != null ?
+                new ObjectParameter("TipoPagoFactrura", tipoPagoFactrura) :
+                new ObjectParameter("TipoPagoFactrura", typeof(string));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarFactura", idFacturaParameter, idEmpleadoParameter, fechaFactruraParameter, totalFactruraParameter, tipoPagoFactruraParameter, idClienteParameter, idProductoParameter);
         }
     
-        public virtual int spEditarEmpleado(Nullable<int> idEmpleado, string nombre, string apellidos, string correo, string direccion)
+        public virtual int spEditarEmpleado(Nullable<int> idEmpleado, string nombreEmpleado, string apellidosEmpleado, string correoEmpleado, string direccionEmpleado)
         {
             var idEmpleadoParameter = idEmpleado.HasValue ?
                 new ObjectParameter("IdEmpleado", idEmpleado) :
                 new ObjectParameter("IdEmpleado", typeof(int));
     
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
+            var nombreEmpleadoParameter = nombreEmpleado != null ?
+                new ObjectParameter("NombreEmpleado", nombreEmpleado) :
+                new ObjectParameter("NombreEmpleado", typeof(string));
     
-            var apellidosParameter = apellidos != null ?
-                new ObjectParameter("Apellidos", apellidos) :
-                new ObjectParameter("Apellidos", typeof(string));
+            var apellidosEmpleadoParameter = apellidosEmpleado != null ?
+                new ObjectParameter("ApellidosEmpleado", apellidosEmpleado) :
+                new ObjectParameter("ApellidosEmpleado", typeof(string));
     
-            var correoParameter = correo != null ?
-                new ObjectParameter("Correo", correo) :
-                new ObjectParameter("Correo", typeof(string));
+            var correoEmpleadoParameter = correoEmpleado != null ?
+                new ObjectParameter("CorreoEmpleado", correoEmpleado) :
+                new ObjectParameter("CorreoEmpleado", typeof(string));
     
-            var direccionParameter = direccion != null ?
-                new ObjectParameter("Direccion", direccion) :
-                new ObjectParameter("Direccion", typeof(string));
+            var direccionEmpleadoParameter = direccionEmpleado != null ?
+                new ObjectParameter("DireccionEmpleado", direccionEmpleado) :
+                new ObjectParameter("DireccionEmpleado", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarEmpleado", idEmpleadoParameter, nombreParameter, apellidosParameter, correoParameter, direccionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarEmpleado", idEmpleadoParameter, nombreEmpleadoParameter, apellidosEmpleadoParameter, correoEmpleadoParameter, direccionEmpleadoParameter);
+        }
+    
+        public virtual int spCrearProducto(Nullable<int> idMarca, Nullable<int> idCategoria, string nombreProducto, Nullable<int> idEstado, string descripcionProducto, Nullable<decimal> precioProducto, Nullable<int> cantidadProducto)
+        {
+            var idMarcaParameter = idMarca.HasValue ?
+                new ObjectParameter("IdMarca", idMarca) :
+                new ObjectParameter("IdMarca", typeof(int));
+    
+            var idCategoriaParameter = idCategoria.HasValue ?
+                new ObjectParameter("IdCategoria", idCategoria) :
+                new ObjectParameter("IdCategoria", typeof(int));
+    
+            var nombreProductoParameter = nombreProducto != null ?
+                new ObjectParameter("NombreProducto", nombreProducto) :
+                new ObjectParameter("NombreProducto", typeof(string));
+    
+            var idEstadoParameter = idEstado.HasValue ?
+                new ObjectParameter("IdEstado", idEstado) :
+                new ObjectParameter("IdEstado", typeof(int));
+    
+            var descripcionProductoParameter = descripcionProducto != null ?
+                new ObjectParameter("DescripcionProducto", descripcionProducto) :
+                new ObjectParameter("DescripcionProducto", typeof(string));
+    
+            var precioProductoParameter = precioProducto.HasValue ?
+                new ObjectParameter("PrecioProducto", precioProducto) :
+                new ObjectParameter("PrecioProducto", typeof(decimal));
+    
+            var cantidadProductoParameter = cantidadProducto.HasValue ?
+                new ObjectParameter("CantidadProducto", cantidadProducto) :
+                new ObjectParameter("CantidadProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearProducto", idMarcaParameter, idCategoriaParameter, nombreProductoParameter, idEstadoParameter, descripcionProductoParameter, precioProductoParameter, cantidadProductoParameter);
+        }
+    
+        public virtual ObjectResult<spListarEstado_Result> spListarEstado()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarEstado_Result>("spListarEstado");
+        }
+    
+        public virtual int spEditarCategoria(Nullable<int> idCategoria, string nombreCategoria, string descripcionCategoria)
+        {
+            var idCategoriaParameter = idCategoria.HasValue ?
+                new ObjectParameter("IdCategoria", idCategoria) :
+                new ObjectParameter("IdCategoria", typeof(int));
+    
+            var nombreCategoriaParameter = nombreCategoria != null ?
+                new ObjectParameter("NombreCategoria", nombreCategoria) :
+                new ObjectParameter("NombreCategoria", typeof(string));
+    
+            var descripcionCategoriaParameter = descripcionCategoria != null ?
+                new ObjectParameter("DescripcionCategoria", descripcionCategoria) :
+                new ObjectParameter("DescripcionCategoria", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarCategoria", idCategoriaParameter, nombreCategoriaParameter, descripcionCategoriaParameter);
+        }
+    
+        public virtual int spCrearMarca_Producto(string nombreMarca, string descripcionMarca)
+        {
+            var nombreMarcaParameter = nombreMarca != null ?
+                new ObjectParameter("NombreMarca", nombreMarca) :
+                new ObjectParameter("NombreMarca", typeof(string));
+    
+            var descripcionMarcaParameter = descripcionMarca != null ?
+                new ObjectParameter("DescripcionMarca", descripcionMarca) :
+                new ObjectParameter("DescripcionMarca", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearMarca_Producto", nombreMarcaParameter, descripcionMarcaParameter);
+        }
+    
+        public virtual int spCrearFactura(Nullable<int> idEmpleado, Nullable<System.DateTime> fechaFactrura, Nullable<decimal> totalFactrura, string tipoPagoFactrura, Nullable<int> idCliente, Nullable<int> idProducto)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            var fechaFactruraParameter = fechaFactrura.HasValue ?
+                new ObjectParameter("FechaFactrura", fechaFactrura) :
+                new ObjectParameter("FechaFactrura", typeof(System.DateTime));
+    
+            var totalFactruraParameter = totalFactrura.HasValue ?
+                new ObjectParameter("TotalFactrura", totalFactrura) :
+                new ObjectParameter("TotalFactrura", typeof(decimal));
+    
+            var tipoPagoFactruraParameter = tipoPagoFactrura != null ?
+                new ObjectParameter("TipoPagoFactrura", tipoPagoFactrura) :
+                new ObjectParameter("TipoPagoFactrura", typeof(string));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearFactura", idEmpleadoParameter, fechaFactruraParameter, totalFactruraParameter, tipoPagoFactruraParameter, idClienteParameter, idProductoParameter);
+        }
+    
+        public virtual int spCrearEmpleado(string nombreEmpleado, string apellidosEmpleado, string correoEmpleado, string direccionEmpleado)
+        {
+            var nombreEmpleadoParameter = nombreEmpleado != null ?
+                new ObjectParameter("NombreEmpleado", nombreEmpleado) :
+                new ObjectParameter("NombreEmpleado", typeof(string));
+    
+            var apellidosEmpleadoParameter = apellidosEmpleado != null ?
+                new ObjectParameter("ApellidosEmpleado", apellidosEmpleado) :
+                new ObjectParameter("ApellidosEmpleado", typeof(string));
+    
+            var correoEmpleadoParameter = correoEmpleado != null ?
+                new ObjectParameter("CorreoEmpleado", correoEmpleado) :
+                new ObjectParameter("CorreoEmpleado", typeof(string));
+    
+            var direccionEmpleadoParameter = direccionEmpleado != null ?
+                new ObjectParameter("DireccionEmpleado", direccionEmpleado) :
+                new ObjectParameter("DireccionEmpleado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearEmpleado", nombreEmpleadoParameter, apellidosEmpleadoParameter, correoEmpleadoParameter, direccionEmpleadoParameter);
         }
     }
 }
