@@ -17,16 +17,16 @@ namespace Proyecto_P5.Pages
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
-            string nombre = TxtNombre.Text.Trim();
-            string apellidos = TxtApellidos.Text.Trim();
-            string correo = TxtCorreo.Text.Trim();
-            string direccion = TxtDireccion.Text.Trim();
+            string nombreCliente = TxtNombre.Text.Trim();
+            string apellidosCliente = TxtApellidos.Text.Trim();
+            string correoCliente = TxtCorreo.Text.Trim();
+            string direccionCliente = TxtDireccion.Text.Trim();
 
             try
             {
                 using (Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    db.spCrearCliente(nombre, apellidos, correo, direccion);
+                    db.spCrearCliente(nombreCliente, apellidosCliente, correoCliente, direccionCliente);
                 }
             }
             catch (Exception)

@@ -67,11 +67,11 @@ namespace Proyecto_P5.Pages
 
                     ListaCategorias.AddRange(query);
 
-                    DdMarcas.DataTextField = "Text";
-                    DdMarcas.DataValueField = "Value";
+                    DdCategorias.DataTextField = "Text";
+                    DdCategorias.DataValueField = "Value";
 
-                    DdMarcas.DataSource = ListaCategorias;
-                    DdMarcas.DataBind();
+                    DdCategorias.DataSource = ListaCategorias;
+                    DdCategorias.DataBind();
                 }
             }
             catch (Exception)
@@ -97,11 +97,11 @@ namespace Proyecto_P5.Pages
 
                     ListaEstados.AddRange(query);
 
-                    DdMarcas.DataTextField = "Text";
-                    DdMarcas.DataValueField = "Value";
+                    DdEstados.DataTextField = "Text";
+                    DdEstados.DataValueField = "Value";
 
-                    DdMarcas.DataSource = ListaEstados;
-                    DdMarcas.DataBind();
+                    DdEstados.DataSource = ListaEstados;
+                    DdEstados.DataBind();
                 }
             }
             catch (Exception)
@@ -132,7 +132,7 @@ namespace Proyecto_P5.Pages
                 Response.Redirect("~/Pages/Error.aspx");
             }
 
-            Response.Redirect("~/Pages/ExitoAgregarProducto.aspx");
+            Response.Redirect("~/Pages/ResultadoDeCrearProducto.aspx");
         }
 
         protected void BtnRegresar_Click(object sender, EventArgs e)

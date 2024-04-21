@@ -152,6 +152,9 @@
     <Content Include="Pages\EmpleadoEditarPage.aspx" />
     <Content Include="Pages\EmpleadoListarPage.aspx" />
     <Content Include="Pages\Error.aspx" />
+    <Content Include="Pages\FacturaAgregarPage.aspx" />
+    <Content Include="Pages\FacturaEditarPage.aspx" />
+    <Content Include="Pages\FacturaListarPage.aspx" />
     <Content Include="Pages\Marca_ProductoAgregarPage.aspx" />
     <Content Include="Pages\Marca_ProductoEditarPage.aspx" />
     <Content Include="Pages\Marca_ProductoListarPage.aspx" />
@@ -161,11 +164,15 @@
     <Content Include="Pages\ResultadoDeCrearCategoria.aspx" />
     <Content Include="Pages\ResultadoDeCrearCliente.aspx" />
     <Content Include="Pages\ResultadoDeCrearEmpleado.aspx" />
+    <Content Include="Pages\ResultadoDeCrearFactura.aspx" />
     <Content Include="Pages\ResultadoDeCrearMarca_Producto.aspx" />
+    <Content Include="Pages\ResultadoDeCrearProducto.aspx" />
     <Content Include="Pages\ResultadoEditarCategoria.aspx" />
     <Content Include="Pages\ResultadoEditarCliente.aspx" />
     <Content Include="Pages\ResultadoEditarEmpleado.aspx" />
+    <Content Include="Pages\ResultadoEditarFactura.aspx" />
     <Content Include="Pages\ResultadoEditarMarca_Producto.aspx" />
+    <Content Include="Pages\ResultadoEditarProducto.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -388,6 +395,27 @@
     <Compile Include="Pages\Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FacturaAgregarPage.aspx.cs">
+      <DependentUpon>FacturaAgregarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FacturaAgregarPage.aspx.designer.cs">
+      <DependentUpon>FacturaAgregarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FacturaEditarPage.aspx.cs">
+      <DependentUpon>FacturaEditarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FacturaEditarPage.aspx.designer.cs">
+      <DependentUpon>FacturaEditarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FacturaListarPage.aspx.cs">
+      <DependentUpon>FacturaListarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FacturaListarPage.aspx.designer.cs">
+      <DependentUpon>FacturaListarPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Marca_ProductoAgregarPage.aspx.cs">
       <DependentUpon>Marca_ProductoAgregarPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -451,12 +479,26 @@
     <Compile Include="Pages\ResultadoDeCrearEmpleado.aspx.designer.cs">
       <DependentUpon>ResultadoDeCrearEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ResultadoDeCrearFactura.aspx.cs">
+      <DependentUpon>ResultadoDeCrearFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadoDeCrearFactura.aspx.designer.cs">
+      <DependentUpon>ResultadoDeCrearFactura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ResultadoDeCrearMarca_Producto.aspx.cs">
       <DependentUpon>ResultadoDeCrearMarca_Producto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\ResultadoDeCrearMarca_Producto.aspx.designer.cs">
       <DependentUpon>ResultadoDeCrearMarca_Producto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResultadoDeCrearProducto.aspx.cs">
+      <DependentUpon>ResultadoDeCrearProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadoDeCrearProducto.aspx.designer.cs">
+      <DependentUpon>ResultadoDeCrearProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ResultadoEditarCategoria.aspx.cs">
       <DependentUpon>ResultadoEditarCategoria.aspx</DependentUpon>
@@ -479,12 +521,26 @@
     <Compile Include="Pages\ResultadoEditarEmpleado.aspx.designer.cs">
       <DependentUpon>ResultadoEditarEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ResultadoEditarFactura.aspx.cs">
+      <DependentUpon>ResultadoEditarFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadoEditarFactura.aspx.designer.cs">
+      <DependentUpon>ResultadoEditarFactura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ResultadoEditarMarca_Producto.aspx.cs">
       <DependentUpon>ResultadoEditarMarca_Producto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\ResultadoEditarMarca_Producto.aspx.designer.cs">
       <DependentUpon>ResultadoEditarMarca_Producto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResultadoEditarProducto.aspx.cs">
+      <DependentUpon>ResultadoEditarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadoEditarProducto.aspx.designer.cs">
+      <DependentUpon>ResultadoEditarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

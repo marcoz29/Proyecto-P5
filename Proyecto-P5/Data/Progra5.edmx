@@ -31,10 +31,10 @@
           <Parameter Name="DescripcionCategoria" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spCrearCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
-          <Parameter Name="Correo" Type="varchar" Mode="In" />
-          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidosCliente" Type="varchar" Mode="In" />
+          <Parameter Name="CorreoCliente" Type="varchar" Mode="In" />
+          <Parameter Name="DireccionCliente" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spCrearEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NombreEmpleado" Type="varchar" Mode="In" />
@@ -145,12 +145,6 @@
           <FunctionImport Name="spConsultarProductoId" ReturnType="Collection(Proyecto_P5Model.spConsultarProductoId_Result)">
           <Parameter Name="idProducto" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="spCrearCliente">
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="Apellidos" Mode="In" Type="String" />
-            <Parameter Name="Correo" Mode="In" Type="String" />
-            <Parameter Name="Direccion" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="spListarMarca_Producto" ReturnType="Collection(Proyecto_P5Model.spListarMarca_Producto_Result)" />
           <FunctionImport Name="spListarFactura" ReturnType="Collection(Proyecto_P5Model.spListarFactura_Result)" />
           <FunctionImport Name="spListarEmpleado" ReturnType="Collection(Proyecto_P5Model.spListarEmpleado_Result)" />
@@ -226,6 +220,12 @@
             <Parameter Name="ApellidosEmpleado" Mode="In" Type="String" />
             <Parameter Name="CorreoEmpleado" Mode="In" Type="String" />
             <Parameter Name="DireccionEmpleado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spCrearCliente">
+            <Parameter Name="NombreCliente" Mode="In" Type="String" />
+            <Parameter Name="ApellidosCliente" Mode="In" Type="String" />
+            <Parameter Name="CorreoCliente" Mode="In" Type="String" />
+            <Parameter Name="DireccionCliente" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spListarProducto_Result">
@@ -418,7 +418,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spCrearCliente" FunctionName="Proyecto_P5Model.Store.spCrearCliente" />
           <FunctionImportMapping FunctionImportName="spListarMarca_Producto" FunctionName="Proyecto_P5Model.Store.spListarMarca_Producto">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Proyecto_P5Model.spListarMarca_Producto_Result">
@@ -490,6 +489,7 @@
           <FunctionImportMapping FunctionImportName="spCrearMarca_Producto" FunctionName="Proyecto_P5Model.Store.spCrearMarca_Producto" />
           <FunctionImportMapping FunctionImportName="spCrearFactura" FunctionName="Proyecto_P5Model.Store.spCrearFactura" />
           <FunctionImportMapping FunctionImportName="spCrearEmpleado" FunctionName="Proyecto_P5Model.Store.spCrearEmpleado" />
+          <FunctionImportMapping FunctionImportName="spCrearCliente" FunctionName="Proyecto_P5Model.Store.spCrearCliente" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

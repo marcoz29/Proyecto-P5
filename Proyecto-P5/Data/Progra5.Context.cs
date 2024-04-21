@@ -109,27 +109,6 @@ namespace Proyecto_P5.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarProductoId_Result>("spConsultarProductoId", idProductoParameter);
         }
     
-        public virtual int spCrearCliente(string nombre, string apellidos, string correo, string direccion)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var apellidosParameter = apellidos != null ?
-                new ObjectParameter("Apellidos", apellidos) :
-                new ObjectParameter("Apellidos", typeof(string));
-    
-            var correoParameter = correo != null ?
-                new ObjectParameter("Correo", correo) :
-                new ObjectParameter("Correo", typeof(string));
-    
-            var direccionParameter = direccion != null ?
-                new ObjectParameter("Direccion", direccion) :
-                new ObjectParameter("Direccion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCliente", nombreParameter, apellidosParameter, correoParameter, direccionParameter);
-        }
-    
         public virtual ObjectResult<spListarMarca_Producto_Result> spListarMarca_Producto()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spListarMarca_Producto_Result>("spListarMarca_Producto");
@@ -408,6 +387,27 @@ namespace Proyecto_P5.Data
                 new ObjectParameter("DireccionEmpleado", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearEmpleado", nombreEmpleadoParameter, apellidosEmpleadoParameter, correoEmpleadoParameter, direccionEmpleadoParameter);
+        }
+    
+        public virtual int spCrearCliente(string nombreCliente, string apellidosCliente, string correoCliente, string direccionCliente)
+        {
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var apellidosClienteParameter = apellidosCliente != null ?
+                new ObjectParameter("ApellidosCliente", apellidosCliente) :
+                new ObjectParameter("ApellidosCliente", typeof(string));
+    
+            var correoClienteParameter = correoCliente != null ?
+                new ObjectParameter("CorreoCliente", correoCliente) :
+                new ObjectParameter("CorreoCliente", typeof(string));
+    
+            var direccionClienteParameter = direccionCliente != null ?
+                new ObjectParameter("DireccionCliente", direccionCliente) :
+                new ObjectParameter("DireccionCliente", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCliente", nombreClienteParameter, apellidosClienteParameter, correoClienteParameter, direccionClienteParameter);
         }
     }
 }
