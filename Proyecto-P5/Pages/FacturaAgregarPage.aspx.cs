@@ -112,7 +112,7 @@ namespace Proyecto_P5.Pages
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             int idEmpleado = Convert.ToInt32(DdEmpleados.SelectedItem.Value);
-            DateTime fecha = DateTime.ParseExact(TxtFecha.Text.Trim(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            DateTime fecha = DateTime.UtcNow;
             decimal total = decimal.Parse(TxtTotal.Text.Trim());
             string TipoPago = TxtTipoPago.Text.Trim();
             int idClinte = Convert.ToInt32(DdClientes.SelectedItem.Value);

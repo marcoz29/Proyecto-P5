@@ -213,39 +213,6 @@ namespace Proyecto_P5.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarMarca_Producto", idMarcaParameter, nombreMarcaParameter, descripcionMarcaParameter);
         }
     
-        public virtual int spEditarFactura(Nullable<int> idFactura, Nullable<int> idEmpleado, Nullable<System.DateTime> fechaFactrura, Nullable<decimal> totalFactrura, string tipoPagoFactrura, Nullable<int> idCliente, Nullable<int> idProducto)
-        {
-            var idFacturaParameter = idFactura.HasValue ?
-                new ObjectParameter("IdFactura", idFactura) :
-                new ObjectParameter("IdFactura", typeof(int));
-    
-            var idEmpleadoParameter = idEmpleado.HasValue ?
-                new ObjectParameter("IdEmpleado", idEmpleado) :
-                new ObjectParameter("IdEmpleado", typeof(int));
-    
-            var fechaFactruraParameter = fechaFactrura.HasValue ?
-                new ObjectParameter("FechaFactrura", fechaFactrura) :
-                new ObjectParameter("FechaFactrura", typeof(System.DateTime));
-    
-            var totalFactruraParameter = totalFactrura.HasValue ?
-                new ObjectParameter("TotalFactrura", totalFactrura) :
-                new ObjectParameter("TotalFactrura", typeof(decimal));
-    
-            var tipoPagoFactruraParameter = tipoPagoFactrura != null ?
-                new ObjectParameter("TipoPagoFactrura", tipoPagoFactrura) :
-                new ObjectParameter("TipoPagoFactrura", typeof(string));
-    
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("IdCliente", idCliente) :
-                new ObjectParameter("IdCliente", typeof(int));
-    
-            var idProductoParameter = idProducto.HasValue ?
-                new ObjectParameter("IdProducto", idProducto) :
-                new ObjectParameter("IdProducto", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarFactura", idFacturaParameter, idEmpleadoParameter, fechaFactruraParameter, totalFactruraParameter, tipoPagoFactruraParameter, idClienteParameter, idProductoParameter);
-        }
-    
         public virtual int spEditarEmpleado(Nullable<int> idEmpleado, string nombreEmpleado, string apellidosEmpleado, string correoEmpleado, string direccionEmpleado)
         {
             var idEmpleadoParameter = idEmpleado.HasValue ?
@@ -408,6 +375,35 @@ namespace Proyecto_P5.Data
                 new ObjectParameter("DireccionCliente", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spCrearCliente", nombreClienteParameter, apellidosClienteParameter, correoClienteParameter, direccionClienteParameter);
+        }
+    
+        public virtual int spEditarFactura(Nullable<int> idFactura, Nullable<int> idEmpleado, Nullable<decimal> totalFactrura, string tipoPagoFactrura, Nullable<int> idCliente, Nullable<int> idProducto)
+        {
+            var idFacturaParameter = idFactura.HasValue ?
+                new ObjectParameter("IdFactura", idFactura) :
+                new ObjectParameter("IdFactura", typeof(int));
+    
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            var totalFactruraParameter = totalFactrura.HasValue ?
+                new ObjectParameter("TotalFactrura", totalFactrura) :
+                new ObjectParameter("TotalFactrura", typeof(decimal));
+    
+            var tipoPagoFactruraParameter = tipoPagoFactrura != null ?
+                new ObjectParameter("TipoPagoFactrura", tipoPagoFactrura) :
+                new ObjectParameter("TipoPagoFactrura", typeof(string));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEditarFactura", idFacturaParameter, idEmpleadoParameter, totalFactruraParameter, tipoPagoFactruraParameter, idClienteParameter, idProductoParameter);
         }
     }
 }

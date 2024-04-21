@@ -85,7 +85,6 @@
         <Function Name="spEditarFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdFactura" Type="int" Mode="In" />
           <Parameter Name="IdEmpleado" Type="int" Mode="In" />
-          <Parameter Name="FechaFactrura" Type="datetime" Mode="In" />
           <Parameter Name="TotalFactrura" Type="money" Mode="In" />
           <Parameter Name="TipoPagoFactrura" Type="varchar" Mode="In" />
           <Parameter Name="IdCliente" Type="int" Mode="In" />
@@ -172,15 +171,6 @@
             <Parameter Name="NombreMarca" Mode="In" Type="String" />
             <Parameter Name="DescripcionMarca" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="spEditarFactura">
-            <Parameter Name="IdFactura" Mode="In" Type="Int32" />
-            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
-            <Parameter Name="FechaFactrura" Mode="In" Type="DateTime" />
-            <Parameter Name="TotalFactrura" Mode="In" Type="Decimal" />
-            <Parameter Name="TipoPagoFactrura" Mode="In" Type="String" />
-            <Parameter Name="IdCliente" Mode="In" Type="Int32" />
-            <Parameter Name="IdProducto" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="spEditarEmpleado">
             <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
             <Parameter Name="NombreEmpleado" Mode="In" Type="String" />
@@ -226,6 +216,14 @@
             <Parameter Name="ApellidosCliente" Mode="In" Type="String" />
             <Parameter Name="CorreoCliente" Mode="In" Type="String" />
             <Parameter Name="DireccionCliente" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditarFactura">
+            <Parameter Name="IdFactura" Mode="In" Type="Int32" />
+            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+            <Parameter Name="TotalFactrura" Mode="In" Type="Decimal" />
+            <Parameter Name="TipoPagoFactrura" Mode="In" Type="String" />
+            <Parameter Name="IdCliente" Mode="In" Type="Int32" />
+            <Parameter Name="IdProducto" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spListarProducto_Result">
@@ -474,7 +472,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spEditarCliente" FunctionName="Proyecto_P5Model.Store.spEditarCliente" />
           <FunctionImportMapping FunctionImportName="spEditarMarca_Producto" FunctionName="Proyecto_P5Model.Store.spEditarMarca_Producto" />
-          <FunctionImportMapping FunctionImportName="spEditarFactura" FunctionName="Proyecto_P5Model.Store.spEditarFactura" />
           <FunctionImportMapping FunctionImportName="spEditarEmpleado" FunctionName="Proyecto_P5Model.Store.spEditarEmpleado" />
           <FunctionImportMapping FunctionImportName="spCrearProducto" FunctionName="Proyecto_P5Model.Store.spCrearProducto" />
           <FunctionImportMapping FunctionImportName="spListarEstado" FunctionName="Proyecto_P5Model.Store.spListarEstado">
@@ -490,6 +487,7 @@
           <FunctionImportMapping FunctionImportName="spCrearFactura" FunctionName="Proyecto_P5Model.Store.spCrearFactura" />
           <FunctionImportMapping FunctionImportName="spCrearEmpleado" FunctionName="Proyecto_P5Model.Store.spCrearEmpleado" />
           <FunctionImportMapping FunctionImportName="spCrearCliente" FunctionName="Proyecto_P5Model.Store.spCrearCliente" />
+          <FunctionImportMapping FunctionImportName="spEditarFactura" FunctionName="Proyecto_P5Model.Store.spEditarFactura" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -12,12 +12,73 @@ namespace Proyecto_P5.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (IsPostBack == false)
             {
+                CargarInformacionDeProducto();
                 LlenarListaMarcas();
                 LlenarListaCategorias();
                 LlenarListaEstados();
             }
+        }
+        private void CargarInformacionDeProducto()
+        {
+
+            int idProducto = Convert.ToInt32(Request.QueryString["id"]);
+
+            TxtIdProducto.Text = idProducto.ToString();
+
+
+            try
+
+            {
+
+                using (Proyecto_P5Entities db = new Proyecto_P5Entities())
+
+                {
+
+                    var datosProducto = db.spConsultarProductoId(idProducto).FirstOrDefault();
+
+
+                    if (datosProducto != null)
+
+                    {
+
+                        TxtNombre.Text = datosProducto.NombreProducto;
+
+                        TxtDescripcion.Text = datosProducto.DescripcionProducto;
+
+                        TxtPrecio.Text = datosProducto.PrecioProducto.ToString();
+
+                        TxtCantidad.Text = datosProducto.CantidadProducto.ToString();
+
+
+                        string idMarca = datosProducto.IdMarca.ToString();
+
+                        string idCategoria = datosProducto.IdCategoria.ToString();
+
+                        string idEstado = datosProducto.IdEstado.ToString();
+
+
+                        DdMarcas.SelectedValue = idMarca;
+
+                        DdCategorias.SelectedValue = idCategoria;
+
+                        DdEstados.SelectedValue = idEstado;
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception)
+
+            {
+
+                Response.Redirect("Error.aspx");
+
+            }
+
         }
         private void LlenarListaMarcas()
         {
@@ -31,7 +92,7 @@ namespace Proyecto_P5.Pages
                                  select new ListItem
                                  {
                                      Value = lr.IdMarca.ToString(),
-                                     Text = lr.NombreMarca.ToString()
+                                     Text = lr.NombreMarca
                                  }
                                  ).ToList();
 
@@ -44,7 +105,7 @@ namespace Proyecto_P5.Pages
                     DdMarcas.DataBind();
                 }
             }
-            catch (Exception)
+            catch
             {
                 Response.Redirect("Error.aspx");
             }
@@ -61,20 +122,20 @@ namespace Proyecto_P5.Pages
                                  select new ListItem
                                  {
                                      Value = lr.IdCategoria.ToString(),
-                                     Text = lr.NombreCategoria.ToString()
+                                     Text = lr.NombreCategoria
                                  }
                                  ).ToList();
 
                     ListaCategorias.AddRange(query);
 
-                    DdMarcas.DataTextField = "Text";
-                    DdMarcas.DataValueField = "Value";
+                    DdCategorias.DataTextField = "Text";
+                    DdCategorias.DataValueField = "Value";
 
-                    DdMarcas.DataSource = ListaCategorias;
-                    DdMarcas.DataBind();
+                    DdCategorias.DataSource = ListaCategorias;
+                    DdCategorias.DataBind();
                 }
             }
-            catch (Exception)
+            catch
             {
                 Response.Redirect("Error.aspx");
             }
@@ -91,20 +152,20 @@ namespace Proyecto_P5.Pages
                                  select new ListItem
                                  {
                                      Value = lr.idEstado.ToString(),
-                                     Text = lr.estado.ToString()
+                                     Text = lr.estado
                                  }
                                  ).ToList();
 
                     ListaEstados.AddRange(query);
 
-                    DdMarcas.DataTextField = "Text";
-                    DdMarcas.DataValueField = "Value";
+                    DdEstados.DataTextField = "Text";
+                    DdEstados.DataValueField = "Value";
 
-                    DdMarcas.DataSource = ListaEstados;
-                    DdMarcas.DataBind();
+                    DdEstados.DataSource = ListaEstados;
+                    DdEstados.DataBind();
                 }
             }
-            catch (Exception)
+            catch
             {
                 Response.Redirect("Error.aspx");
             }
@@ -115,31 +176,31 @@ namespace Proyecto_P5.Pages
             try
             {
                 int idProducto = Convert.ToInt32(TxtIdProducto.Text.Trim());
-            int idMarca = Convert.ToInt32(DdMarcas.SelectedItem.Value);
-            int idCategoria = Convert.ToInt32(DdCategorias.SelectedItem.Value);
-            string nombre = TxtNombre.Text.Trim();
-            int idEstado = Convert.ToInt32(DdEstados.SelectedItem.Value);
-            string descripcion = TxtDescripcion.Text.Trim();
-            decimal precio = decimal.Parse(TxtPrecio.Text.Trim());
-            int cantidad = int.Parse(TxtCantidad.Text.Trim());
+                int idMarca = Convert.ToInt32(DdMarcas.SelectedItem.Value);
+                int idCategoria = Convert.ToInt32(DdCategorias.SelectedItem.Value);
+                string nombre = TxtNombre.Text.Trim();
+                int idEstado = Convert.ToInt32(DdEstados.SelectedItem.Value);
+                string descripcion = TxtDescripcion.Text.Trim();
+                decimal precio = decimal.Parse(TxtPrecio.Text.Trim());
+                int cantidad = int.Parse(TxtCantidad.Text.Trim());
 
-            //Esto valida que se haya digitado info en el cuadro de texto
-            //if (!string.IsNullOrEmpty(TxtContrasennia.Text.Trim()))
-            //{
-            //    contrasennia = TxtContrasennia.Text.Trim();
-            //}
+                //Esto valida que se haya digitado info en el cuadro de texto
+                //if (!string.IsNullOrEmpty(TxtContrasennia.Text.Trim()))
+                //{
+                //    contrasennia = TxtContrasennia.Text.Trim();
+                //}
 
-                using(Proyecto_P5Entities db = new Proyecto_P5Entities())
+                using (Proyecto_P5Entities db = new Proyecto_P5Entities())
                 {
-                    db.spEditarProducto(idProducto, idMarca, idCategoria, nombre, idEstado, descripcion, precio, cantidad );
+                    db.spEditarProducto(idProducto, idMarca, idCategoria, nombre, idEstado, descripcion, precio, cantidad);
                 }
             }
-            catch (Exception)
+            catch
             {
                 Response.Redirect("~/Pages/Error.aspx");
             }
 
-            Response.Redirect("~/Pages/ExitoModificarProducto.aspx");
+            Response.Redirect("~/Pages/ResultadoEditarProducto.aspx");
         }
 
         protected void BtnRegresar_Click(object sender, EventArgs e)

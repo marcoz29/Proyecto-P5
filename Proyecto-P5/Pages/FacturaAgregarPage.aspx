@@ -9,10 +9,6 @@
             <asp:DropDownList ID="DdEmpleados" runat="server" Enabled="true"></asp:DropDownList>
         </div>
         <div>
-            <span>Fecha</span>
-            <asp:TextBox ID="TxtFecha" runat="server" CssClass="form-control"></asp:TextBox>
-        </div>
-        <div>
             <span>Total</span>
             <asp:TextBox ID="TxtTotal" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
