@@ -23,7 +23,7 @@
             <span>Direccion</span>
             <asp:TextBox ID="TxtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-        <div>
+        <div style="margin-top: 10px">
             <asp:Button ID="BtnModificar" runat="server" Text="Modificar" CssClass="btn btn-primary" OnClick="BtnModificar_Click" />
             <asp:Button ID="BtnRegresar" runat="server" Text="Regresar" BackColor="#F29200" ForeColor="White" CssClass="btn btn-primary" OnClick="BtnRegresar_Click" />
         </div>

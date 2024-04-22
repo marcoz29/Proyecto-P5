@@ -11,7 +11,23 @@ namespace Proyecto_P5
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] != null)
+            {
+                lnkCerrarSesion.Visible = true;
+                navCategoria.Visible = true;
+                navCliente.Visible = true;
+                navEmpleado.Visible = true;
+                navFactura.Visible = true;
+                navMarca.Visible = true;
+                navProducto.Visible = true;
+            }
+        }
 
+        protected void lnkCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

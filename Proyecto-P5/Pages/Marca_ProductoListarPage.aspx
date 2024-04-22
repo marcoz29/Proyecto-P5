@@ -15,7 +15,7 @@
             <asp:BoundField DataField="DescripcionMarca" HeaderText="Descripcion" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <a href="Marca_ProductoEditarPage.aspx?id=<%# Eval("IdMarca") %> ">Editar</a>
+                    <a href="Marca_ProductoEditarPage.aspx?id=<%# Eval("IdMarca") %> " style="color:blue">Editar</a>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

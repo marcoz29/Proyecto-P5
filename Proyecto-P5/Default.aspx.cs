@@ -13,5 +13,36 @@ namespace Proyecto_P5
         {
 
         }
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+            bool usuarioCorrecto = false;
+
+            try
+            {
+                string usuario = txtUsuario.Text;
+                string password = txtContra.Text;
+                if (usuario == "Admin" && password == "1234")
+                {
+                    usuarioCorrecto = true;
+
+                    Session["usuario"] = usuario;
+
+                }
+                else
+                {
+                    lblMensaje.Text = "Usuario o Contraseña Incorrecto";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblMensaje.Text = ex.Message;
+            }
+            if (usuarioCorrecto == true)
+            {
+                Response.Redirect("~/Pages/CategoriaListarPage.aspx");
+            }
+        }
     }
 }

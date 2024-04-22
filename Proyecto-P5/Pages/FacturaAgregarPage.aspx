@@ -25,7 +25,7 @@
             <asp:DropDownList ID="DdProductos" runat="server" Enabled="true"></asp:DropDownList>
         </div>
 
-        <div>
+        <div style="margin-top: 10px">
             <asp:Button ID="BtnAgregar" runat="server" Text="Guardar"
                 BackColor="#33CC33" ForeColor="White" CssClass="btn btn-primary"
                 OnClick="BtnAgregar_Click" />

@@ -21,7 +21,7 @@
             <asp:TextBox ID="TxtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
 
-        <div>
+        <div style="margin-top: 10px">
             <asp:Button ID="BtnAgregar" runat="server" Text="Guardar"
                 BackColor="#33CC33" ForeColor="White" CssClass="btn btn-primary"
                 OnClick="BtnAgregar_Click" />

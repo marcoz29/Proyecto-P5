@@ -6,17 +6,17 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> ExtremStar</title>
+    <title ><%: Page.Title %> ExtremStar</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Image/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body style="background-color: gray">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -46,12 +46,15 @@
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/CategoriaListarPage.aspx">Categorias</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Marca_ProductoListarPage.aspx">Marcas</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/ClienteListarPage.aspx">Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/EmpleadoListarPage.aspx">Empleados</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/FacturaListarPage.aspx">Facturas</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/ProductoListarPage.aspx">Productos</a></li>
+                        <li class="nav-item"><a id="navCategoria" class="nav-link" runat="server" Visible="false" href="~/Pages/CategoriaListarPage.aspx">Categorias</a></li>
+                        <li class="nav-item"><a id="navMarca" class="nav-link" runat="server" Visible="false" href="~/Pages/Marca_ProductoListarPage.aspx">Marcas</a></li>
+                        <li class="nav-item"><a id="navCliente" class="nav-link" runat="server" Visible="false" href="~/Pages/ClienteListarPage.aspx">Clientes</a></li>
+                        <li class="nav-item"><a id="navEmpleado" class="nav-link" runat="server" Visible="false" href="~/Pages/EmpleadoListarPage.aspx">Empleados</a></li>
+                        <li class="nav-item"><a id="navFactura" class="nav-link" runat="server" Visible="false" href="~/Pages/FacturaListarPage.aspx">Facturas</a></li>
+                        <li class="nav-item"><a id="navProducto" class="nav-link" runat="server" Visible="false" href="~/Pages/ProductoListarPage.aspx">Productos</a></li>
+                        <li>
+                            <asp:LinkButton ID="lnkCerrarSesion" runat="server" Visible="false" OnClick="lnkCerrarSesion_Click">Cerrar Sesion</asp:LinkButton>
+                        </li>
                     </ul>
                 </div>
             </div>

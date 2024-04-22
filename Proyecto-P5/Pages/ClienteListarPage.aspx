@@ -17,7 +17,7 @@
             <asp:BoundField DataField="DireccionCliente" HeaderText="Direccion" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <a href="ClienteEditarPage.aspx?id=<%# Eval("IdCliente") %> ">Editar</a>
+                    <a href="ClienteEditarPage.aspx?id=<%# Eval("IdCliente") %> " style="color:blue">Editar</a>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

@@ -19,7 +19,7 @@
             <asp:BoundField DataField="NombreProducto" HeaderText="Producto" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <a href="FacturaEditarPage.aspx?id=<%# Eval("IdFactrura") %> ">Editar</a>
+                    <a href="FacturaEditarPage.aspx?id=<%# Eval("IdFactrura") %> " style="color:blue">Editar</a>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
